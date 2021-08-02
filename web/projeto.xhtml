@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    
+    <h:head>
+        <title>CADASTRO DE PROJETO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    
+    <h:body>
+        <div>
+            <h:form>
+                <fieldset>
+                    <legend>Adicionar Projeto</legend>
+                    
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Título" for="titulo" />
+                        <h:inputText id="titulo" value="#{projetoController.projeto.titulo}"/>
+
+                        <h:outputLabel value="Assuntos" for="assunto" />
+                        <h:inputText id="assunto" value="#{projetoController.projeto.assunto}"/>
+
+                        <h:outputLabel value="Aluno Responsável" for="aluno_responsavel" />
+                        <h:inputText id="aluno_responsavel" value="#{projetoController.projeto.aluno_responsavel}"/>
+
+                        <h:outputLabel value="Supervisor" for="supervisor" />
+                        <h:inputText id="supervisor" value="#{projetoController.projeto.supervisor}"/>
+
+                        <h:outputLabel value="Data de Execução" for="data_de_execucao" />
+                        <h:inputText id="data_de_execucao" value="#{projetoController.projeto.data_de_execucao}"/>
+
+                        <h:outputLabel value="Componentes" for="lista_de_componentes" />
+                        <h:inputText id="lista_de_componentes" value="#{projetoController.projeto.lista_de_componentes}"/>
+
+                        <h:commandButton value="SALVAR" action="#{projetoController.gravar()}"/>
+                    </h:panelGrid>
+                    
+                </fieldset>
+            </h:form>
+        </div>
+        
+        <div>
+            <h:form>
+                <h:dataTable var="item" value="#{projetoController.lista}">
+                    <h:column>
+                        <f:facet name="header">Título</f:facet>
+                        #{item.titulo}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Aluno Responsável</f:facet>
+                        #{item.aluno_responsavel} 
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+        
+    </h:body>
+</html>

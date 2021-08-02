@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>CADASTRO ALUNO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    <h:body>
+        <div>
+            <h:form>
+                <fieldset>
+                    <legend>Cadastrar Aluno</legend>
+                    
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Número de Matrícula" for="RM" />
+                        <h:inputText id="RM" value="#{alunoController.aluno.RM}"/>
+
+                        <h:outputLabel value="Nome" for="nome" />
+                        <h:inputText id="nome" value="#{alunoController.aluno.nome}"/>
+
+                        <h:commandButton value="SALVAR" action="#{alunoController.gravar()}"/>
+                    </h:panelGrid>
+                </fieldset>
+            </h:form>
+        </div>
+        
+        <div>
+            <h:form>
+                <h:dataTable var="item" value="#{alunoController.lista}">
+                    <h:column>
+                        <f:facet name="header">MATRÍCULA</f:facet>
+                        #{item.RM}
+                    </h:column>
+                    
+                    <h:column> </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Nome</f:facet>
+                        #{item.nome} 
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+    </h:body>
+</html>
